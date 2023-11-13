@@ -1,3 +1,4 @@
+//Agregando un comentario
 package com.mycompany.productos;
 
 import controller.CategoriasController;
