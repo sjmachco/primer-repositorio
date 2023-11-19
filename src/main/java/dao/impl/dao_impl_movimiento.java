@@ -77,6 +77,7 @@ public class dao_impl_movimiento implements dao.dao_movimiento {
         PreparedStatement ps;
         ResultSet rs;
         try {
+            //modificacion del update
             ps = cn.prepareStatement("update movimiento set id_producto = ?, cantidad = ? where id_movimiento = ?");
             ps.setInt(1, movimiento.getId_producto());
             ps.setInt(2, movimiento.getCantidad());
