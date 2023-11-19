@@ -4,6 +4,7 @@ package dao.impl;
  *
  * @author TIVE
  */
+//modificado
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import consola.Consola;
@@ -64,7 +65,6 @@ public class dao_impl_movimiento implements dao.dao_movimiento {
             }
             ps.execute();
             consola.println("Movimiento registrado!");
-            //id_producto = movimiento.getId_producto();
             return true;
         } catch (SQLException e) {
             consola.println(e.toString());
