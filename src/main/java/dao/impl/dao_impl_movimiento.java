@@ -77,7 +77,7 @@ public class dao_impl_movimiento implements dao.dao_movimiento {
         PreparedStatement ps;
         ResultSet rs;
         try {
-            ps = cn.prepareStatement("udpate movimiento set id_producto = ?, cantidad = ? where id_movimiento = ?");
+            ps = cn.prepareStatement("update movimiento set id_producto = ?, cantidad = ? where id_movimiento = ?");
             ps.setInt(1, movimiento.getId_producto());
             ps.setInt(2, movimiento.getCantidad());
             ps.setInt(3, movimiento.getId_movimiento());
@@ -111,7 +111,7 @@ public class dao_impl_movimiento implements dao.dao_movimiento {
         PreparedStatement ps;
         ResultSet rs;
         try {
-            ps = cn.prepareStatement("select id_movimiento, p.producto, cantidad, tipo_movimiento from movimiento as m "
+            ps = cn.prepareStatement("select id_movimiento, m.id_producto, p.nombre, cantidad, tipo_movimiento from movimiento as m "
                     + "inner join producto as p on p.id_producto = m.id_producto where id_movimiento = ?");
             ps.setInt(1, id_movimiento);
             rs = ps.executeQuery();
@@ -119,8 +119,9 @@ public class dao_impl_movimiento implements dao.dao_movimiento {
             while (rs.next()) {
                 movimiento.setId_movimiento(rs.getInt(1));
                 movimiento.setId_producto(rs.getInt(2));
-                movimiento.setCantidad(rs.getInt(3));
-                movimiento.setTipo_movimiento(rs.getString(4));
+                movimiento.setNombre_producto(rs.getString(3));
+                movimiento.setCantidad(rs.getInt(4));
+                movimiento.setTipo_movimiento(rs.getString(5));
             }
             return movimiento;
         } catch (SQLException e) {

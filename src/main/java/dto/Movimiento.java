@@ -10,6 +10,7 @@ public class Movimiento {
     private Integer id_producto;
     private Integer cantidad;
     private String tipo_movimiento;
+    private String nombre_producto;
     
     public Movimiento(){
         this.cantidad = 0;
@@ -45,5 +46,13 @@ public class Movimiento {
     
     public void setTipo_movimiento(String tipo_movimiento){
         this.tipo_movimiento = tipo_movimiento;
+    }
+    
+    public String getNombre_producto(){
+        return nombre_producto;
+    }
+    
+    public void setNombre_producto(String nombre_producto){
+        this.nombre_producto = nombre_producto;
     }
 }
